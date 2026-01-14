@@ -1,0 +1,85 @@
+# Employee Management System - Team 6
+
+## Project Overview
+A comprehensive employee management system for Company 'Z' with secure user authentication, employee data management, and reporting capabilities.
+
+## Team Members
+- James Thuy
+- Jemal Hussien  
+- Julian Perdomo
+
+## Technology Stack
+- **Language**: Java
+- **GUI Framework**: JavaFX
+- **Database**: MySQL
+- **Architecture**: MVC with DAO Pattern
+- **Build Tool**: Maven (or Gradle)
+
+## Project Setup
+
+### Prerequisites
+1. Java JDK 11 or higher
+2. MySQL 8.0+
+3. JavaFX SDK
+4. IDE (IntelliJ IDEA, Eclipse, or VS Code)
+
+### Database Setup
+1. Run the `docs/database/employee_management_schema.sql` script
+2. Update `src/main/resources/database.properties` with your MySQL credentials
+3. Optionally run `docs/database/sample_data.sql` for test data
+
+### Running the Application
+```bash
+# Compile and run
+javac -cp "lib/*" src/main/java/com/employeemgmt/Application.java
+java -cp "lib/*:src/main/java" com.employeemgmt.Application
+```
+
+## Task Assignment Guide
+
+### Core Features to Implement
+1. **User Authentication System** 
+   - Files: `LoginView.java`, `AuthenticationController.java`, `SecurityService.java`
+   - Responsible: [Assign team member]
+
+2. **Employee Data Management**
+   - Files: `Employee.java`, `EmployeeDAO.java`, `EmployeeController.java`
+   - Responsible: [Assign team member]
+
+3. **Search Functionality**
+   - Files: `EmployeeSearchView.java`, search methods in `EmployeeDAO.java`
+   - Responsible: [Assign team member]
+
+4. **Salary Management**
+   - Files: `SalaryManagementView.java`, `PayrollController.java`
+   - Responsible: [Assign team member]
+
+5. **Reports Generation**
+   - Files: `ReportView.java`, `ReportDAO.java`, `ReportController.java`
+   - Responsible: [Assign team member]
+
+### Development Guidelines
+- Follow MVC architecture pattern
+- Use proper exception handling
+- Implement input validation
+- Follow Java naming conventions
+- Comment your code thoroughly
+- Create unit tests for your components
+
+## Directory Structure
+```
+src/
+├── main/java/com/employeemgmt/
+│   ├── model/          # Data entities
+│   ├── dao/            # Database access
+│   ├── controller/     # Business logic
+│   ├── view/           # GUI components
+│   ├── service/        # Additional services
+│   └── util/           # Utility classes
+```
+
+## Important Notes
+- HR Admins have full CRUD access
+- General employees have read-only access to their own data
+- All database operations must use prepared statements for security
+- Implement proper error handling and user feedback

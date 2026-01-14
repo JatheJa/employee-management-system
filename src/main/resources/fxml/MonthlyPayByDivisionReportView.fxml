@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.employeemgmt.view.reports.MonthlyPayByDivisionReportController">
+
+    <center>
+        <VBox spacing="12.0">
+            <!-- Outer padding must be an Insets object -->
+            <padding>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+            </padding>
+
+            <!-- Title -->
+            <Label text="Monthly Pay by Division"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <!-- Criteria -->
+            <TitledPane text="Report Criteria" expanded="true">
+                <content>
+                    <GridPane hgap="10.0" vgap="8.0">
+                        <padding>
+                            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+                        </padding>
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120.0" halignment="RIGHT"/>
+                            <ColumnConstraints minWidth="220.0" hgrow="ALWAYS"/>
+                            <ColumnConstraints minWidth="120.0" halignment="RIGHT"/>
+                            <ColumnConstraints minWidth="220.0" hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <children>
+                            <!-- Row 0 -->
+                            <Label text="Start Date:"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <DatePicker fx:id="startDatePicker"
+                                        GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="End Date:"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                            <DatePicker fx:id="endDatePicker"
+                                        GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                        </children>
+                    </GridPane>
+                </content>
+            </TitledPane>
+
+            <!-- Buttons -->
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                <Button fx:id="generateButton"
+                        text="Generate Report"
+                        onAction="#handleGenerateReport"/>
+                <Button fx:id="clearButton"
+                        text="Clear"
+                        onAction="#handleClear"/>
+            </HBox>
+
+            <!-- Message label -->
+            <Label fx:id="messageLabel"
+                   wrapText="true"/>
+
+            <!-- Results table -->
+            <TableView fx:id="reportTable" prefHeight="400.0">
+                <columns>
+                    <TableColumn fx:id="divisionColumn"
+                                 text="Division"
+                                 prefWidth="200.0"/>
+                    <TableColumn fx:id="totalGrossColumn"
+                                 text="Total Gross Pay"
+                                 prefWidth="140.0"/>
+                    <TableColumn fx:id="totalNetColumn"
+                                 text="Total Net Pay"
+                                 prefWidth="140.0"/>
+                    <TableColumn fx:id="employeeCountColumn"
+                                 text="# Employees"
+                                 prefWidth="120.0"/>
+                </columns>
+            </TableView>
+
+            <!-- Totals summary -->
+            <Label fx:id="totalsLabel"
+                   wrapText="true"
+                   style="-fx-font-weight: bold;"/>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.employeemgmt.view.employee.EmployeeEditController">
+
+    <center>
+        <VBox spacing="12.0">
+            <!-- explicit Insets instead of padding="15.0" -->
+            <padding>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+            </padding>
+
+            <!-- Title -->
+            <Label text="Edit Employee"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <!-- Employee info -->
+            <TitledPane text="Employee Information" expanded="true">
+                <content>
+                    <GridPane hgap="10.0" vgap="8.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120.0" halignment="RIGHT"/>
+                            <ColumnConstraints minWidth="250.0" hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <children>
+                            <!-- Row 0: Employee ID (read-only label) -->
+                            <Label text="Employee ID:"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <Label fx:id="empIdLabel"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <!-- Row 1: Employee Number -->
+                            <Label text="Employee Number:"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="empNumberField"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <!-- Row 2: First Name -->
+                            <Label text="First Name:"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="firstNameField"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <!-- Row 3: Last Name -->
+                            <Label text="Last Name:"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="lastNameField"
+                                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <!-- Row 4: Email -->
+                            <Label text="Email:"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="emailField"
+                                       GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                            <!-- Row 5: SSN -->
+                            <Label text="SSN:"
+                                   GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <TextField fx:id="ssnField"
+                                       GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                            <!-- Row 6: Hire Date -->
+                            <Label text="Hire Date:"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                            <DatePicker fx:id="hireDatePicker"
+                                        GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                            <!-- Row 7: Current Salary -->
+                            <Label text="Current Salary:"
+                                   GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                            <TextField fx:id="salaryField"
+                                       GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                            <!-- Row 8: Employment Status -->
+                            <Label text="Employment Status:"
+                                   GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="employmentStatusComboBox"
+                                      GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+                        </children>
+                    </GridPane>
+                </content>
+            </TitledPane>
+
+            <!-- Address and Demographics -->
+            <TitledPane text="Address and Demographics" expanded="true">
+                <content>
+                    <GridPane hgap="10.0" vgap="8.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120.0" halignment="RIGHT"/>
+                            <ColumnConstraints minWidth="250.0" hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <children>
+                            <!-- Row 0: Street -->
+                            <Label text="Street:"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="streetField"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <!-- Row 1: State -->
+                            <Label text="State:"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="stateComboBox"
+                                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <!-- Row 2: City -->
+                            <Label text="City:"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="cityComboBox"
+                                      GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <!-- Row 3: ZIP -->
+                            <Label text="ZIP:"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="zipField"
+                                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <!-- Row 4: Phone -->
+                            <Label text="Phone:"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="phoneField"
+                                       GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                            <!-- Row 5: Gender -->
+                            <Label text="Gender:"
+                                   GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="genderComboBox"
+                                      GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                            <!-- Row 6: Race -->
+                            <Label text="Race:"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                            <TextField fx:id="raceField"
+                                       GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                            <!-- Row 7: Date of Birth -->
+                            <Label text="Date of Birth:"
+                                   GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                            <DatePicker fx:id="dobPicker"
+                                        GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                        </children>
+                    </GridPane>
+                </content>
+            </TitledPane>
+
+            <!-- Message area -->
+            <Label fx:id="messageLabel"
+                   wrapText="true"/>
+
+            <!-- Buttons -->
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                <Button fx:id="saveButton"
+                        text="Save Changes"
+                        onAction="#handleSave"/>
+                <Button fx:id="reloadButton"
+                        text="Reload"
+                        onAction="#handleReload"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
